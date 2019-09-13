@@ -17,7 +17,7 @@ Therefore I strategically placed some possible problems I found in the "question
 
 Many of my samples are semantically similar, and I made sure to incorporate all of the methods used throughout.
 
-The main difference is that samples like simple_sample_device_x509.js, simple_sample_device_with_sas.js, were then compressed into device_connectionMethods.js
+The main difference is that samples like simple_sample_device_x509.js, simple_sample_device_with_sas.js, were then compressed into device_connectionMethods.js as they only differed in a couple lines
 
 And while I am more than happy to rewrite these as well (it won't take long if it is desired), my personal opinion was that a small amount of the samples, such as the dmpatterns_fwupdate_device added little new besides confusion, their material was incorporated into other examples
 
