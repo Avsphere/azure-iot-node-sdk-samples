@@ -39,8 +39,9 @@ const sendMessageFromIotHub = async() => {
     try {
         const client = HubClient.fromConnectionString(process.env.IOTHUB_CONNECTION_STRING)
 
-        client.send(process.env.DEVICE_ID, generateImportantMessage(Math.random()))
-
+        await client.send(process.env.DEVICE_ID, generateImportantMessage(Math.random()))
+        console.log('Message sent from iot hub!');
+        
     } catch (err) {
         console.error('Error sending message from iot hub: ', err)
     }

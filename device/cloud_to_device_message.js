@@ -18,10 +18,9 @@ const sendMessageFromIotHub = async() => {
         const client = HubClient.fromConnectionString(process.env.IOTHUB_CONNECTION_STRING)
         console.log('Connected to IoT Hub!')
 
-        client.send(process.env.DEVICE_ID, generateImportantMessage(0))
+        await client.send(process.env.DEVICE_ID, generateImportantMessage(0))
         console.log('C2D message sent successfully!')
 
-        process.exit(0)
     } catch (err) {
         console.error('Error sending message from iot hub: ', err)
     }
