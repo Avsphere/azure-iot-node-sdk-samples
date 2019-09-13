@@ -14,7 +14,8 @@ const run = async() => {
     try {
         const eventHubClient = await EventHubClient.createFromIotHubConnectionString(process.env.IOTHUB_CONNECTION_STRING);
         console.log( getAllPropertyNames(eventHubClient) )
-        //where are all the methods listed? Am I looking at the wrong thing?... https://azure.github.io/azure-sdk-for-js/event-hubs/classes/eventhubclient.html
+        //when walking the proto chain I would have expected to find methods from the documentation that I did not
+        //Am I looking at the wrong thing?... https://azure.github.io/azure-sdk-for-js/event-hubs/classes/eventhubclient.html
     } catch ( err ) { 
         console.error('Error : ', err)
     }

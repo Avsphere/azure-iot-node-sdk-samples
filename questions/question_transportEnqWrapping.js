@@ -3,11 +3,10 @@ const { Mqtt } = require('azure-iot-device-mqtt');
 const { Client, Message } = require('azure-iot-device');
 
 /* 
+My least important question, but interesting...
 
-why does the wrapping go transportObj : MessagEnqueued : transportObj
-
-is that not redundant? Am I doing something wrong here?
-
+why does the wrapping go transportObj : MessagEnqueued : transportObj??
+(havent really investigated... maybe take out)
 
 */
 

@@ -3,7 +3,7 @@ const { Mqtt } = require('azure-iot-device-mqtt');
 const { Client } = require('azure-iot-device');
 
 
-
+//before finalizing the example I would like to get my questions answered to see if there is truly an issue
 
 
 const run = async() => {
@@ -12,6 +12,8 @@ const run = async() => {
 
     //get the device twin
     const twin = await client.getTwin()
+
+    console.log('twin properties', twin.properties)
 
     //Note: When the twin is done being created the desired properties have already been retrieved
     
@@ -24,19 +26,19 @@ const run = async() => {
       console.log('on properties.reported', props)
     });
 
+
     //now lets update the reported properties
-    const update = {
+    const patch = {
       animal : 'cow',
       firmwareAnimalVersion : Math.random().toString()
     }
 
-
-    twin.properties.reported.update(update, err => err ? console.error(err) : console.log('properties.reported updated!') )
+    twin.properties.reported.update(patch, err => err ? console.error(err) : console.log('properties.reported updated!') )
     
 
-
+    process.exit(0)
   } catch(err) {
-    console.error('preUpstream failed : ', err)
+    console.error('Error: ', err)
   }
 }
 

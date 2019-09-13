@@ -7,11 +7,13 @@ const { promisify } = require('util')
 const delay = promisify(setTimeout)
 
 
-//!!!!    This is a new sample I created, I think it is conceptually helpful and led to "issues/eventHubsClient_docsInconsistency.js"
-
 /* 
+This is a conceptual example in that it likely does not make sense for a module client to be sending messages then retrieve them in the same script
+
 This sample uses a module client to have the device send dummy messages, 
 it then uses an event hub client, created from out IoT Hub connection string to pull the recent messages down
+
+It also demonstrates 
 */
 
 
@@ -23,7 +25,7 @@ const generateImportantMessage = messageId => new Message(
     })
 )
 
-//This pulls the recent messages down
+//Pulls messages down from event hub using the client, starting event position and the partition id
 const recieveFromEventHubAndPrint = (eventHubClient, eventPosition) => partitionId => eventHubClient.receive(
     partitionId,
     m => console.log(`PartitionId : ${partitionId}`, m.body),
@@ -33,7 +35,7 @@ const recieveFromEventHubAndPrint = (eventHubClient, eventPosition) => partition
 const run = async() => {
     try {
         const moduleClient = ModuleClient.fromConnectionString(process.env.DEVICE_CONN_STRING, Mqtt);
-        const eventHubClient = await EventHubClient.createFromIotHubConnectionString(process.env.IOTHUB_CONNECTION_STRING);
+        const eventHubClient = await EventHubClient.createFromIotHubConnectionString(process.env.IOTHUB_CONNECTION_STRING); //this uses the iot hub connection string to create the client rather than the actual event hub end point
         const httpClient = HttpClientFromConnectionString(process.env.DEVICE_CONN_STRING)
         console.log('Initialized clients!')
 
@@ -47,17 +49,17 @@ const run = async() => {
         const messageCount = 10
         const importantMessages = [...Array(messageCount).keys()].map(generateImportantMessage)
 
-        //iterative approach
+        //iterative send approach
         await Promise.all(importantMessages.map(sendDummyMessage))
         console.log('Sent messages iteratively')
 
-        // we can also send as a batch of events using an http client (mqtt is not supported yet 9/12/2019)
+        // we can also send as a batch of events using certain protocols such as http 
         //first lets generate some newer messages
         const extremelyImportantMessages = [...Array(messageCount).keys()].map( i => generateImportantMessage(i+10) ) 
         await httpClient.sendEventBatch(extremelyImportantMessages)
 
 
-        //now lets connect to event hub and pull all these messages down
+        //pull all these messages down
         partitionIds.map(recieveFromEventHubAndPrint(eventHubClient, startingPosition))
 
     } catch ( err ) { 

@@ -37,7 +37,7 @@ const run = async() => {
         //     registry.addConfiguration(sampleConfigurations[1])
         // ])
 
-        //SDK BUG -- their promise utils fails for this identical statement
+        //SDK BUG -- their promise utils fails for this... I believe in error in their promiseUtils -- still need to investigate 9/13
         await Promise.all( sampleConfigurations.map(registry.addConfiguration) )
         .catch( err => console.error('Adding configurations failed!', err ) )
         

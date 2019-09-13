@@ -1,7 +1,6 @@
 require('dotenv').config()
 const { Mqtt } = require('azure-iot-device-mqtt');
 const { Client : DeviceClient } = require('azure-iot-device');
-const { promisify } = require('util')
 
 
 //note that this is playing the part of the listener, to see it in action run device_methods_invoke

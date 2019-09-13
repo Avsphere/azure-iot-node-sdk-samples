@@ -1,5 +1,5 @@
 {
-  "name": "learningScripts",
+  "name": "azure-iot-node-sdk-sampleRemodeling",
   "version": "1.0.0",
   "description": "",
   "main": "usingADeviceConnectionString.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "avsphere",
   "license": "ISC",
   "dependencies": {
     "@azure/event-hubs": "^2.1.1",
@@ -15,9 +15,6 @@
     "azure-iot-device-http": "^1.10.3",
     "azure-iot-device-mqtt": "^1.10.2",
     "azure-iothub": "^1.10.3",
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "dotenv": "^8.1.0",
-    "express": "^4.17.1"
+    "dotenv": "^8.1.0"
   }
 }

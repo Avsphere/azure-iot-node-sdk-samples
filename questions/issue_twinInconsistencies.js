@@ -4,7 +4,8 @@ const { Client } = require('azure-iot-device');
 
 /*
 
-documentation is off, their sample is incorrect 
+hmmmm, there is a note in the sample about the order of handler instantiation, but I don't think that is the culprut here?
+
 
 */
 
