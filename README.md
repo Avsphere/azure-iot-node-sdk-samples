@@ -2,15 +2,15 @@
 
 What started off as a 2019'ifying refurbishment, has turned into more of a remodel
 
-I originally planned to only spend a day on this and just do more of a style / structure upgrade
+I originally planned to keep things more or less the same and do more of a style / structure upgrade
 
-However, going through the samples has, in a fit of new-comer / frustration energy, led me to dedicate a bit more time with what is hopefully considered an upgrade on the device / service sample directories
+However, going through the samples has, in a fit of new-comer excitement / frustration energy, led me to dedicate a bit more time with what is hopefully considered an upgrade on the device / service sample directories
 
 ## Disclaimer
 
 While I like my new samples, I am absolutely certain that my knowledge of the codebase and surrounding concepts is uncertain, alas I am only about a week invested in its understanding.
 
-Therefore I strategically placed some possible problems I found in the "questions" directory
+Therefore I strategically placed some possible problems I found in the "questions" directory, and will seek midpoint guidance before continuing on
 
 
 ### What is different
